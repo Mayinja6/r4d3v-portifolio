@@ -31,7 +31,21 @@ const Contact = () => {
         autoDismiss: true,
       });
       return;
+    } else {
+      function checkEmail() {
+        let filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email)) {
+          addToast("Please Provide a valid Email Address.", {
+            appearance: "error",
+            autoDismiss: true,
+          });
+            return;
+        }
     }
+      checkEmail()
+    }
+
     if (subject === "") {
       addToast("What's the  Conversation About?", {
         appearance: "error",
